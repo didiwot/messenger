@@ -1,0 +1,3 @@
+/home/didiwot/projects/C++/messenger/build/CMakeFiles/messenger.dir
+/home/didiwot/projects/C++/messenger/build/CMakeFiles/edit_cache.dir
+/home/didiwot/projects/C++/messenger/build/CMakeFiles/rebuild_cache.dir
