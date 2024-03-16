@@ -2,7 +2,7 @@
 #include <boost/asio.hpp>
 
 using boost::asio::ip::tcp;
-#if 1
+
 class TcpServer {
 public:
     TcpServer(boost::asio::io_context& io_context)
@@ -11,9 +11,8 @@ public:
     }
 
 private:
-    //создаем новое подключение 
     void startAccept() {
-        new_connection_.reset(new tcp::socket(io_context_));
+        new_connection_ = std::make_shared<tcp::socket>(io_context_);
         acceptor_.async_accept(*new_connection_,
             [this](const boost::system::error_code& ec) {
                 if (!ec) {
@@ -22,32 +21,28 @@ private:
                 } else {
                     std::cerr << "Connected error: " << ec.message() << std::endl;
                 }
-                startAccept();
             });
     }
-    //начинаем читать
+
     void startRead() {
         new_connection_->async_read_some(boost::asio::buffer(data_, max_length),
             [this](const boost::system::error_code& ec, std::size_t bytes_transferred) {
                 if (!ec) {
-                    std::cout << "Received data from client: " << std::string(data_) << std::endl;
+                    std::cout << "Received data from client: " << std::string(data_, bytes_transferred) << std::endl;
                     startWrite(bytes_transferred);
                 } else {
                     std::cerr << "Received error: " << ec.message() << std::endl;
                 }
             });
     }
-    //начинаем отправлять 
+
     void startWrite(std::size_t length) {
-        if(new_connection_->is_open()){std::cout << "connect ok \n";};
-
-
-        boost::asio::async_write(*new_connection_, boost::asio::buffer(request, request.size()),
+        boost::asio::async_write(*new_connection_, boost::asio::buffer(request, length),
             [this](const boost::system::error_code& ec, std::size_t /*bytes_transferred*/) {
                 if (!ec) {
                     std::cout << "Sent response to client" << std::endl;
                     startRead();
-                }else {
+                } else {
                     std::cerr << "Received error: " << ec.message() << std::endl;
                 }
             });
@@ -73,4 +68,3 @@ int main() {
     }
     return 0;
 }
-#endif

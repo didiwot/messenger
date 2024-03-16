@@ -3,30 +3,27 @@
 
 using boost::asio::ip::tcp;
 
-class TcpClient{
-    public:
+class TcpClient {
+public:
     TcpClient(boost::asio::io_context& io_context)
     : io_context_(io_context), socket_(io_context) {}
 
-    // тут мы должны по идее подключиться к серверу
     void start(const std::string& server, const std::string& port){
         tcp::resolver resolver(io_context_);
         tcp::resolver::results_type endpoints = resolver.resolve(server, port);
 
-        boost::asio::async_connect(socket_,endpoints,
+        boost::asio::async_connect(socket_, endpoints,
             [this](boost::system::error_code ec, tcp::endpoint){
                 if(!ec){
                     std::cout << "Connected to server" << std::endl;
-                    //ассинхронно отправляем сообщение
                     sendRequest();
-                }else{
+                } else {
                     std::cerr << "Error connecting to server: " << ec.message() << std::endl; 
                 }
             });
     }
 
-    private:
-    //отправляем запрос
+private:
     void sendRequest(){
         std::string request = "Hello, server!";
         boost::asio::async_write(socket_, boost::asio::buffer(request),
@@ -34,25 +31,23 @@ class TcpClient{
                 if (!ec)
                 {
                     std::cout << "Data sent to server" << std::endl;
-                    //асинхронно ждем ответа 
                     receiveResponse();
                 } else{
                     std::cerr << "Error sending data" << ec.message() << std::endl;
                 }
-            
             });
     }
-    //получаем ответ
+
     void receiveResponse(){
-        boost::asio::async_read(socket_, boost::asio::buffer(response_, max_length), boost::asio::transfer_all(),
-        [this](boost::system::error_code ec, std::size_t length) {
+        socket_.async_read_some(boost::asio::buffer(response_, max_length),
+            [this](boost::system::error_code ec, std::size_t bytes_transferred) {
                 if (!ec) {
-                    std::cout << "Received response from server: " << std::string(response_, length) << std::endl;
+                    std::cout << "Received response from server: " << std::string(response_, bytes_transferred) << std::endl;
+                    socket_.close();
                 } else {
                     std::cerr << "Error receiving response: " << ec.message() << std::endl;
                 }
             });
-
     }
 
     boost::asio::io_context& io_context_;
@@ -71,8 +66,7 @@ int main(){
     }
     catch(const std::exception& e)
     {
-        std::cerr << "exeption: " << e.what() << '\n';
+        std::cerr << "exception: " << e.what() << '\n';
     }
     return 0;
-    
 }
