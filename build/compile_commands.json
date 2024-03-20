@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/didiwot/projects/C++/messenger/build",
+  "command": "/usr/bin/g++    -std=c++17 -Wall -g -o CMakeFiles/libclient.dir/src/TcpClient.cpp.o -c /home/didiwot/projects/C++/messenger/src/TcpClient.cpp",
+  "file": "/home/didiwot/projects/C++/messenger/src/TcpClient.cpp"
+},
+{
+  "directory": "/home/didiwot/projects/C++/messenger/build",
+  "command": "/usr/bin/g++    -std=c++17 -Wall -g -o CMakeFiles/libserver.dir/src/TcpServer.cpp.o -c /home/didiwot/projects/C++/messenger/src/TcpServer.cpp",
+  "file": "/home/didiwot/projects/C++/messenger/src/TcpServer.cpp"
+},
+{
+  "directory": "/home/didiwot/projects/C++/messenger/build",
+  "command": "/usr/bin/g++ -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_REGEX_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK   -std=c++17 -Wall -g -o CMakeFiles/client.dir/src/client.cpp.o -c /home/didiwot/projects/C++/messenger/src/client.cpp",
+  "file": "/home/didiwot/projects/C++/messenger/src/client.cpp"
+},
+{
+  "directory": "/home/didiwot/projects/C++/messenger/build",
+  "command": "/usr/bin/g++ -DBOOST_ALL_NO_LIB -DBOOST_ATOMIC_DYN_LINK -DBOOST_REGEX_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DBOOST_THREAD_DYN_LINK   -std=c++17 -Wall -g -o CMakeFiles/server.dir/src/server.cpp.o -c /home/didiwot/projects/C++/messenger/src/server.cpp",
+  "file": "/home/didiwot/projects/C++/messenger/src/server.cpp"
+}
+]
