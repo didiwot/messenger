@@ -1,3 +1,6 @@
-/home/didiwot/projects/C++/messenger/build/CMakeFiles/messenger.dir
+/home/didiwot/projects/C++/messenger/build/CMakeFiles/libclient.dir
+/home/didiwot/projects/C++/messenger/build/CMakeFiles/libserver.dir
+/home/didiwot/projects/C++/messenger/build/CMakeFiles/client.dir
+/home/didiwot/projects/C++/messenger/build/CMakeFiles/server.dir
 /home/didiwot/projects/C++/messenger/build/CMakeFiles/edit_cache.dir
 /home/didiwot/projects/C++/messenger/build/CMakeFiles/rebuild_cache.dir

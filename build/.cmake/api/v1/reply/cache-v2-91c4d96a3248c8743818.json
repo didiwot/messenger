@@ -18,6 +18,18 @@
 			"value" : "/usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0"
 		},
 		{
+			"name" : "Boost_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/include"
+		},
+		{
 			"name" : "Boost_PROGRAM_OPTIONS_LIBRARY_RELEASE",
 			"properties" : 
 			[
@@ -28,6 +40,42 @@
 			],
 			"type" : "STRING",
 			"value" : "/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.74.0"
+		},
+		{
+			"name" : "Boost_REGEX_LIBRARY_RELEASE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : ""
+				}
+			],
+			"type" : "STRING",
+			"value" : "/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.74.0"
+		},
+		{
+			"name" : "Boost_SYSTEM_LIBRARY_RELEASE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : ""
+				}
+			],
+			"type" : "STRING",
+			"value" : "/usr/lib/x86_64-linux-gnu/libboost_system.so.1.74.0"
+		},
+		{
+			"name" : "Boost_THREAD_LIBRARY_RELEASE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : ""
+				}
+			],
+			"type" : "STRING",
+			"value" : "/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.74.0"
 		},
 		{
 			"name" : "CMAKE_ADDR2LINE",
@@ -67,11 +115,11 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel ..."
+					"value" : "No help, variable specified on the command line."
 				}
 			],
 			"type" : "STRING",
-			"value" : ""
+			"value" : "Debug"
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -183,10 +231,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "CXX compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "/usr/bin/g++"
 		},
 		{
@@ -311,10 +359,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "C compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "/usr/bin/gcc"
 		},
 		{
@@ -547,11 +595,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "Enable/Disable output of compile commands during generation."
+					"value" : "No help, variable specified on the command line."
 				}
 			],
 			"type" : "BOOL",
-			"value" : ""
+			"value" : "TRUE"
 		},
 		{
 			"name" : "CMAKE_EXTRA_GENERATOR",
@@ -612,6 +660,30 @@
 			],
 			"type" : "INTERNAL",
 			"value" : ""
+		},
+		{
+			"name" : "CMAKE_HAVE_LIBC_PTHREAD",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Test CMAKE_HAVE_LIBC_PTHREAD"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "1"
+		},
+		{
+			"name" : "CMAKE_HAVE_PTHREAD_H",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Have include pthread.h"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "1"
 		},
 		{
 			"name" : "CMAKE_HOME_DIRECTORY",
@@ -868,6 +940,66 @@
 			],
 			"type" : "STATIC",
 			"value" : "messenger"
+		},
+		{
+			"name" : "CMAKE_PROJECT_VERSION",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "0.1"
+		},
+		{
+			"name" : "CMAKE_PROJECT_VERSION_MAJOR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "0"
+		},
+		{
+			"name" : "CMAKE_PROJECT_VERSION_MINOR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "1"
+		},
+		{
+			"name" : "CMAKE_PROJECT_VERSION_PATCH",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : ""
+		},
+		{
+			"name" : "CMAKE_PROJECT_VERSION_TWEAK",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1159,7 +1291,23 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[/usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake][cfound components: program_options ][v1.74.0()]"
+			"value" : "[/usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake][cfound components: system thread regex ][v1.74.0(1.42.0)]"
+		},
+		{
+			"name" : "boost_atomic_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for boost_atomic."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/lib/x86_64-linux-gnu/cmake/boost_atomic-1.74.0"
 		},
 		{
 			"name" : "boost_headers_DIR",
@@ -1192,6 +1340,54 @@
 			],
 			"type" : "PATH",
 			"value" : "/usr/lib/x86_64-linux-gnu/cmake/boost_program_options-1.74.0"
+		},
+		{
+			"name" : "boost_regex_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for boost_regex."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/lib/x86_64-linux-gnu/cmake/boost_regex-1.74.0"
+		},
+		{
+			"name" : "boost_system_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for boost_system."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/lib/x86_64-linux-gnu/cmake/boost_system-1.74.0"
+		},
+		{
+			"name" : "boost_thread_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for boost_thread."
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/lib/x86_64-linux-gnu/cmake/boost_thread-1.74.0"
 		},
 		{
 			"name" : "messenger_BINARY_DIR",

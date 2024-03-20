@@ -117,41 +117,152 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named messenger
+# Target rules for targets named libclient
 
 # Build rule for target.
-messenger: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 messenger
-.PHONY : messenger
+libclient: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libclient
+.PHONY : libclient
 
 # fast build rule for target.
-messenger/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/messenger.dir/build.make CMakeFiles/messenger.dir/build
-.PHONY : messenger/fast
+libclient/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libclient.dir/build.make CMakeFiles/libclient.dir/build
+.PHONY : libclient/fast
 
-client.o: client.cpp.o
-.PHONY : client.o
+#=============================================================================
+# Target rules for targets named libserver
+
+# Build rule for target.
+libserver: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 libserver
+.PHONY : libserver
+
+# fast build rule for target.
+libserver/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libserver.dir/build.make CMakeFiles/libserver.dir/build
+.PHONY : libserver/fast
+
+#=============================================================================
+# Target rules for targets named client
+
+# Build rule for target.
+client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client
+.PHONY : client
+
+# fast build rule for target.
+client/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/build
+.PHONY : client/fast
+
+#=============================================================================
+# Target rules for targets named server
+
+# Build rule for target.
+server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server
+.PHONY : server
+
+# fast build rule for target.
+server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
+.PHONY : server/fast
+
+src/TcpClient.o: src/TcpClient.cpp.o
+.PHONY : src/TcpClient.o
 
 # target to build an object file
-client.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/messenger.dir/build.make CMakeFiles/messenger.dir/client.cpp.o
-.PHONY : client.cpp.o
+src/TcpClient.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libclient.dir/build.make CMakeFiles/libclient.dir/src/TcpClient.cpp.o
+.PHONY : src/TcpClient.cpp.o
 
-client.i: client.cpp.i
-.PHONY : client.i
+src/TcpClient.i: src/TcpClient.cpp.i
+.PHONY : src/TcpClient.i
 
 # target to preprocess a source file
-client.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/messenger.dir/build.make CMakeFiles/messenger.dir/client.cpp.i
-.PHONY : client.cpp.i
+src/TcpClient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libclient.dir/build.make CMakeFiles/libclient.dir/src/TcpClient.cpp.i
+.PHONY : src/TcpClient.cpp.i
 
-client.s: client.cpp.s
-.PHONY : client.s
+src/TcpClient.s: src/TcpClient.cpp.s
+.PHONY : src/TcpClient.s
 
 # target to generate assembly for a file
-client.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/messenger.dir/build.make CMakeFiles/messenger.dir/client.cpp.s
-.PHONY : client.cpp.s
+src/TcpClient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libclient.dir/build.make CMakeFiles/libclient.dir/src/TcpClient.cpp.s
+.PHONY : src/TcpClient.cpp.s
+
+src/TcpServer.o: src/TcpServer.cpp.o
+.PHONY : src/TcpServer.o
+
+# target to build an object file
+src/TcpServer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libserver.dir/build.make CMakeFiles/libserver.dir/src/TcpServer.cpp.o
+.PHONY : src/TcpServer.cpp.o
+
+src/TcpServer.i: src/TcpServer.cpp.i
+.PHONY : src/TcpServer.i
+
+# target to preprocess a source file
+src/TcpServer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libserver.dir/build.make CMakeFiles/libserver.dir/src/TcpServer.cpp.i
+.PHONY : src/TcpServer.cpp.i
+
+src/TcpServer.s: src/TcpServer.cpp.s
+.PHONY : src/TcpServer.s
+
+# target to generate assembly for a file
+src/TcpServer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libserver.dir/build.make CMakeFiles/libserver.dir/src/TcpServer.cpp.s
+.PHONY : src/TcpServer.cpp.s
+
+src/client.o: src/client.cpp.o
+.PHONY : src/client.o
+
+# target to build an object file
+src/client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client.cpp.o
+.PHONY : src/client.cpp.o
+
+src/client.i: src/client.cpp.i
+.PHONY : src/client.i
+
+# target to preprocess a source file
+src/client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client.cpp.i
+.PHONY : src/client.cpp.i
+
+src/client.s: src/client.cpp.s
+.PHONY : src/client.s
+
+# target to generate assembly for a file
+src/client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/src/client.cpp.s
+.PHONY : src/client.cpp.s
+
+src/server.o: src/server.cpp.o
+.PHONY : src/server.o
+
+# target to build an object file
+src/server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server.cpp.o
+.PHONY : src/server.cpp.o
+
+src/server.i: src/server.cpp.i
+.PHONY : src/server.i
+
+# target to preprocess a source file
+src/server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server.cpp.i
+.PHONY : src/server.cpp.i
+
+src/server.s: src/server.cpp.s
+.PHONY : src/server.s
+
+# target to generate assembly for a file
+src/server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/server.cpp.s
+.PHONY : src/server.cpp.s
 
 # Help Target
 help:
@@ -161,10 +272,22 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... messenger"
-	@echo "... client.o"
-	@echo "... client.i"
-	@echo "... client.s"
+	@echo "... client"
+	@echo "... libclient"
+	@echo "... libserver"
+	@echo "... server"
+	@echo "... src/TcpClient.o"
+	@echo "... src/TcpClient.i"
+	@echo "... src/TcpClient.s"
+	@echo "... src/TcpServer.o"
+	@echo "... src/TcpServer.i"
+	@echo "... src/TcpServer.s"
+	@echo "... src/client.o"
+	@echo "... src/client.i"
+	@echo "... src/client.s"
+	@echo "... src/server.o"
+	@echo "... src/server.i"
+	@echo "... src/server.s"
 .PHONY : help
 
 
